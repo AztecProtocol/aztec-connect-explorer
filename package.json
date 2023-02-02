@@ -19,7 +19,7 @@
     "last 1 chrome version"
   ],
   "devDependencies": {
-    "@aztec/eslint-config": "workspace:^",
+    "@aztec/eslint-config": "file:eslint-config",
     "@aztec/sdk": "^2.1.81",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/bn.js": "^4.11.6",

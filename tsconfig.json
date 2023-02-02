@@ -11,6 +11,5 @@
     "resolveJsonModule": true,
     "inlineSourceMap": true
   },
-  "references": [{ "path": "../sdk/tsconfig.dest.json" }],
   "include": ["src"]
 }

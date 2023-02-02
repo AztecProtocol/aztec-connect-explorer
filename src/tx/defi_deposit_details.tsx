@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BridgeCallData, OffchainDefiDepositData } from '@aztec/sdk';
-import { HashValue, InfoRow, Value } from './../block_summary/index.js';
+import { HashValue, InfoRow, Value } from '../block_summary/index.js';
 import { Tx } from './types.js';
 import { formatAsset, getAssetIcon } from './helpers.js';
 import { NetworkContext, useAsset } from '../context.js';

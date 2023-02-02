@@ -2,6 +2,9 @@
   "name": "aztec-block-explorer",
   "version": "0.1.0",
   "private": true,
+  "installConfig": {
+    "pnp": true
+  },
   "type": "module",
   "scripts": {
     "build": "yarn clean && yarn tsc --noEmit && webpack --config webpack.config.prod.js",
@@ -17,7 +20,7 @@
   ],
   "devDependencies": {
     "@aztec/eslint-config": "workspace:^",
-    "@aztec/sdk": "workspace:^",
+    "@aztec/sdk": "^2.1.81",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/bn.js": "^4.11.6",
     "@types/classnames": "^2.2.10",

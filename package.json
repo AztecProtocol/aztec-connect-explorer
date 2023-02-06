@@ -2,13 +2,10 @@
   "name": "aztec-block-explorer",
   "version": "0.1.0",
   "private": true,
-  "installConfig": {
-    "pnp": true
-  },
   "type": "module",
   "scripts": {
-    "build": "yarn clean && yarn tsc --noEmit && webpack --config webpack.config.prod.js",
-    "start:dev": "webpack serve --config webpack.config.dev.js",
+    "build": "yarn clean && yarn tsc --noEmit && yarn vite build",
+    "start:dev": "yarn vite",
     "formatting": "run -T prettier --check ./src && run -T eslint --max-warnings 0 ./src",
     "clean": "rm -rf ./cache ./dest"
   },
@@ -20,25 +17,25 @@
   ],
   "devDependencies": {
     "@aztec/eslint-config": "file:eslint-config",
-    "@aztec/sdk": "^2.1.81",
+    "@aztec/sdk": "^2.1.83",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/bn.js": "^4.11.6",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^24.0.0",
     "@types/js-cookie": "^2.2.6",
-    "@types/node": "^18.7.23",
+    "@types/node": "^18.11.19",
     "@types/react": "18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^3.0.1",
+    "babel-plugin-styled-components": "^2.0.7",
     "buffer": "^6.0.3",
     "class-validator": "^0.13.2",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
-    "copy-webpack-plugin": "^11.0.0",
     "events": "^3.3.0",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
     "js-cookie": "^2.2.1",
     "moment": "^2.27.0",
     "polished": "^3.6.6",
@@ -46,7 +43,6 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "react-router-dom": "^5.2.0",
-    "resolve-typescript-plugin": "^1.2.0",
     "stream-browserify": "^3.0.0",
     "string_decoder": "^1.3.0",
     "styled-components": "^5.2.0",
@@ -55,7 +51,9 @@
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4",
     "use-http": "^1.0.27",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "vite": "^4.0.4",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-preset-react": "^2.3.0",
+    "vite-tsconfig-paths": "^4.0.5"
   }
 }

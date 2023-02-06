@@ -1,5 +1,5 @@
 FROM node:18-alpine
-COPY explorer explorer
+COPY . .
 WORKDIR /usr/src
 RUN yarn build && yarn formatting
 

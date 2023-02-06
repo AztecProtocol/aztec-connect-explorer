@@ -95,7 +95,7 @@ workflows:
     when:
       equal: [system, << pipeline.parameters.workflow >>]
     jobs:
-      - explorer
+      - explorer:
         requires:
           tags: 
       - deploy:

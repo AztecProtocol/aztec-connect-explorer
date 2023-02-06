@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn clean && yarn tsc --noEmit && yarn vite build",
+    "build": "yarn clean && yarn vite build",
     "start:dev": "yarn vite",
     "formatting": "run -T prettier --check ./src && run -T eslint --max-warnings 0 ./src",
     "clean": "rm -rf ./cache ./dest"

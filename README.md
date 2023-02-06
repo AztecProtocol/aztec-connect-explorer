@@ -1,4 +1,4 @@
-# Aztec Block Explorer
+# Aztec Connect Block Explorer
 
 ### `yarn start`
 

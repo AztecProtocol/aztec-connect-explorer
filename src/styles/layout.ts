@@ -29,7 +29,7 @@ export type Spacing = keyof typeof spacings;
 export const borderRadius = '4px';
 
 const sizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
-export type Size = typeof sizes[number];
+export type Size = (typeof sizes)[number];
 
 export const sizeGt = (b1: Size, b2: Size) => sizes.indexOf(b1) > sizes.indexOf(b2);
 export const sizeGte = (b1: Size, b2: Size) => sizes.indexOf(b1) >= sizes.indexOf(b2);

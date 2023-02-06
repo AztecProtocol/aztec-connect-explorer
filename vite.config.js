@@ -10,13 +10,14 @@ export default defineConfig({
       babel: {
         plugins: [
           [
-          "babel-plugin-styled-components",
-          {
-            displayName: true,
-            fileName: false
-          }]
-        ]
-      }
+            'babel-plugin-styled-components',
+            {
+              displayName: true,
+              fileName: false,
+            },
+          ],
+        ],
+      },
     }),
     viteTsconfigPaths(),
     svgrPlugin(),
@@ -36,4 +37,4 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
   },
-})
+});

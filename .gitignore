@@ -5,3 +5,11 @@ node_modules
 .cache
 .clangd
 yarn-project/*/src/package_version.ts
+
+# Zero install: https://yarnpkg.com/features/zero-installs
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

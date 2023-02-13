@@ -6,11 +6,6 @@ parameters:
   workflow:
     type: string
     default: 'system'
-  target:
-    type: enum
-    default: 'dev'
-    description: The environment to trigger redeploys to
-    enum: ['dev', 'testnet', 'stage']
 
 # This build step checks out the code from the repository. It has a hardcoded readonly key to allow the checkout.
 # Initially it just fetches the repo metadata for the current commit hash to a depth of 50 commits.
@@ -39,6 +34,8 @@ checkout: &checkout
       # Only download metadata when fetching.
       git fetch --depth 50 --filter=blob:none origin $CIRCLE_SHA1
       git checkout FETCH_HEAD
+      # Pull in build-system submodule.
+      git submodule update --init build-system
 
 # Called setup_env to setup a bunch of global variables used throughout the rest of the build process.
 # It takes the required CCI environment variables as inputs, and gives them normalised names for the rest of
@@ -46,7 +43,7 @@ checkout: &checkout
 setup_env: &setup_env
   run:
     name: 'Setup environment'
-    command: cd .circleci && ./setup_env "$CIRCLE_SHA1" "$CIRCLE_TAG" "$CIRCLE_JOB" "$CIRCLE_REPOSITORY_URL" "$CIRCLE_BRANCH"
+    command: ./build-system/scripts/setup_env "$CIRCLE_SHA1" "$CIRCLE_TAG" "$CIRCLE_JOB" "$CIRCLE_REPOSITORY_URL" "$CIRCLE_BRANCH"
 
 jobs:
   explorer:
@@ -78,10 +75,6 @@ tag_regex: &tag_regex /v[0-9]+(\.[0-9]+)*(-[a-zA-Z-]+\.[0-9]+)?/
 tag_filter: &tag_filter
   tags:
     only: *tag_regex
-e2e_test: &e2e_test
-  requires:
-    - e2e-join
-  filters: *tag_filter
 deploy_filters: &deploy_filters
   branches:
     only:

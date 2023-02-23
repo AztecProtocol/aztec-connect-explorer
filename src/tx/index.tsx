@@ -46,6 +46,7 @@ interface TxProps {
 
 export const Tx: React.FunctionComponent<TxProps> = ({ id }) => {
   const [tx, setTx] = useState<TxInterface>();
+  const [initialised, setInitialised] = useState<boolean>(false);
 
   const { get, response, loading, error } = useFetch();
 
@@ -56,7 +57,9 @@ export const Tx: React.FunctionComponent<TxProps> = ({ id }) => {
 
   // init
   useEffect(() => {
-    fetchTx(id).catch(() => `Error fetching tx details: ${id}`);
+    fetchTx(id)
+      .catch(() => `Error fetching tx details: ${id}`)
+      .finally(() => setInitialised(true));
   }, []);
 
   useEffect(() => {
@@ -89,7 +92,7 @@ export const Tx: React.FunctionComponent<TxProps> = ({ id }) => {
 
   const txTitleNode = <StyledSectionTitle breadcrumbs={breadcrumbs} />;
 
-  if (loading || !tx) {
+  if ((loading || !tx) && !initialised) {
     return (
       <Sections>
         <Section title={txTitleNode}>

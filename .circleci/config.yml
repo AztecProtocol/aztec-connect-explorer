@@ -78,8 +78,7 @@ tag_filter: &tag_filter
 deploy_filters: &deploy_filters
   branches:
     only:
-      - defi-bridge-project
-      - stage
+      - master
   tags:
     only: *tag_regex
 

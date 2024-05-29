@@ -1,3 +1,5 @@
+⚠️ This repo was created for Aztec Connect, which is now deprecated. You can read more about the deprecation [here](https://docs.aztec.network/aztec_connect_sunset).
+
 # Aztec Connect Block Explorer
 
 ### `yarn start`
